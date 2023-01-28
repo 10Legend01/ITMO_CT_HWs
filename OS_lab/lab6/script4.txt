@@ -1,0 +1,5 @@
+//1//
+driverquery /nh > drivers.txt
+
+//2//
+sort /r drivers.txt > sortedDrivers.txt

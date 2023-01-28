@@ -1,0 +1,44 @@
+#!/bin/bash
+
+Catalog=""
+MinDate=604800
+S=$(date +%s)
+Date=$(date +%F)
+DateTime="$Date $(date +%T)"
+for C in /home/user/*; do
+	if [[ ! -d $C || ! $C =~ ^.+/Backup-[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+		continue
+	fi
+	D=$(echo "$S - $(date -d "${C##*Backup-}" +%s)" | bc -l)
+	if (( $D < $MinDate )); then
+		Catalog="$C"
+		MinDate=$D
+	fi
+done
+
+Source=/home/user/source
+cd $Source
+Report=/home/user/backup-report
+
+if (( $MinDate == 604800 )); then
+	Catalog="/home/user/Backup-$(date +%F)"
+	mkdir "$Catalog"
+	echo "New backup catalog \"$Catalog\" created at $DateTime" >> $Report
+else
+	echo "Backup catalog \"$Catalog\" updated at $DateTime" >> $Report
+fi
+echo "New backuped files:" >> $Report
+
+for File in $(find . -type f); do
+	if [[ -f "$Catalog/$File" ]]; then
+		if (( $(stat -c %s "$File") != $(stat -c %s "$Catalog/$File") )); then
+			mv "$Catalog/$File" "$Catalog/$File.$Date"
+			scp "$File" "$Catalog/$File"
+			Update="${Update}upd: $File $File.${Date}\n"
+		fi
+	else
+		cp --parents "$File" "$Catalog/"
+		echo "add: $File" >> $Report
+	fi
+done
+echo -e "$Update" >> $Report

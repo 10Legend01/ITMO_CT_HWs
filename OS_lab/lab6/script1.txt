@@ -1,0 +1,25 @@
+Необязательно: 
+	chcp 1251 >nul
+
+//1//
+mkdir C:\LAB6
+cd C:\LAB6
+
+ver > version.txt
+
+systeminfo | find "физическ" > memory.txt
+Или
+wmic os get FreePhysicalMemory, TotalVisibleMemorySize > memory.txt
+
+wmic diskdrive get model, serialNumber, size > disk.txt
+
+//2//
+mkdir TEST
+copy * TEST
+cd TEST
+
+//3//
+copy * all.txt
+
+//4//
+for /f "skip=1" %i in ('dir /b /o-d') do del %i

@@ -1,0 +1,69 @@
+#!/bin/bash
+
+if (( $# != 1 )); then
+	echo "Expected 1 argument"
+	exit
+fi
+
+RegOfName=^[a-zA-Z0-9\.\_\-]+$
+if [[ ! $1 =~ $RegOfName ]]; then
+	echo "Argument can't be name of file"
+	exit
+fi
+
+if [[ ! -d ~/.trash ]]; then
+	echo "$HOME/.trash directory didn't find"
+	exit
+fi
+
+if [[ ! -f ~/.trash.log ]]; then
+	echo ".trash.log file didn't find"
+	exit
+fi
+
+Lines="$(cat ~/.trash.log | grep -E "$1 :")"
+
+if [[ $Lines == "" ]]; then
+	echo "Name of file didn't find in trash"
+	exit
+fi
+
+for Line in "$Lines"; do
+	Restore=$(echo "$Line" | awk '{ print $1 }' )
+	Ans=""
+	echo "Restore $Restore? (Y/N)"
+	while [[ ! "$Ans" =~ [YyNn] ]]; do
+		read -n 1 Ans
+		echo
+	done
+	if [[ "$Ans" =~ [Nn] ]]; then
+		continue
+	fi
+	n=$(echo "$Line" | awk '{ print $3 }' )
+	Backup="$HOME/.trash/$n"
+
+	if [[ ! -d $(dirname "$Restore") ]]; then
+		echo "Directory $(dirname "$Restore") doesn't exist. Directory will be changed to $HOME"
+		Restore="$HOME/$1"
+	fi
+	while [[ -f "$Restore" ]]; do
+		echo "File with this name already exists"
+		while true; do
+			echo "Enter new name: "
+			read NewName
+			if [[ $NewName =~ $RegOfName ]]; then
+				break
+			fi
+			echo "Name is not valid"
+		done
+		Restore="$(dirname $Restore)/$NewName"
+	done
+	ln "$Backup" "$Restore"
+	rm "$Backup"
+	Log="$(cat ~/.trash.log)"
+	echo "$Log" | grep -v ": $n$" > ~/.trash.log
+	echo "File was success restore"
+	exit
+done
+
+echo "The end of search. File was not restore"

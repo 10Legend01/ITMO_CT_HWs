@@ -1,0 +1,30 @@
+#!/bin/bash
+
+Catalog=""
+MinDate=-1
+S=$(date +%s)
+Date=$(date +%F)
+DateTime="$Date $(date +%T)"
+for C in /home/user/*; do
+	if [[ ! -d $C || ! $C =~ ^.+/Backup-[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+		continue
+	fi
+	D=$(echo "$S - $(date -d "${C##*Backup-}" +%s)" | bc -l)
+	if (( $MinDate == -1 || $D < $MinDate )); then
+		Catalog="$C"
+		MinDate=$D
+	fi
+done
+
+if (( $MinDate == -1 )); then
+	echo -e "Does not exist any backup catalogs\nProgram terminated"
+	exit
+fi
+
+Restore=/home/user/restore/
+mkdir -p $Restore
+cd $Catalog
+
+for File in $(find . -type f | grep -Ev ".[0-9]{4}-[0-9]{2}-[0-9]{2}$"); do
+	cp --parents "$File" "$Restore/"
+done

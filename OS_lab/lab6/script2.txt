@@ -1,0 +1,20 @@
+//1//
+hostname
+cd C:\LAB6
+mkdir temp
+net share temp=C:\LAB6\temp /grant:"Все",FULL
+
+//2//
+echo xcopy /y /z C:\Windows\explorer.exe \\%computername%\temp > task.cmd
+
+//3//
+schtasks /Create /tn task /sc MINUTE /tr C:\LAB6\task.cmd
+schtasks /Query /tn task
+Позже:
+	schtasks /Delete /tn task
+
+//4//
+taskkill /f /im xcopy.exe
+
+//5//
+fc C:\Windows\explorer.exe \\%computername%\temp\explorer.exe

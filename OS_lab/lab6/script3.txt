@@ -1,0 +1,13 @@
+//1//
+Если отключено:
+	net start phonesvc
+
+net start > tasks1.txt
+
+//2//
+In 'tasks.bat':
+	net stop phonesvc
+	timeout /t 5
+	net start > tasks2.txt
+	fc tasks1.txt tasks2.txt > diffTasks.txt
+	net start phonesvc
