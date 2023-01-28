@@ -1,0 +1,60 @@
+digraph {
+	B_0 -> E_1
+	E_1 -> T_2
+	T_2 -> P_3
+	P_3 -> V_4
+	V_4 -> "(_5"
+	"(_5" [style=filled]
+	V_4 -> B_6
+	B_6 -> E_7
+	E_7 -> T_8
+	T_8 -> P_9
+	P_9 -> V_10
+	V_10 -> "Var a_11"
+	"Var a_11" [style=filled]
+	P_9 -> "P'_12"
+	"P'_12" -> in_13
+	in_13 [style=filled]
+	"P'_12" -> V_14
+	V_14 -> "Var b_15"
+	"Var b_15" [style=filled]
+	T_8 -> "T'_16"
+	E_7 -> "E'_17"
+	B_6 -> "B'_18"
+	V_4 -> ")_19"
+	")_19" [style=filled]
+	P_3 -> "P'_20"
+	T_2 -> "T'_21"
+	E_1 -> "E'_22"
+	"E'_22" -> or_23
+	or_23 [style=filled]
+	"E'_22" -> T_24
+	T_24 -> P_25
+	P_25 -> V_26
+	V_26 -> "(_27"
+	"(_27" [style=filled]
+	V_26 -> B_28
+	B_28 -> E_29
+	E_29 -> T_30
+	T_30 -> P_31
+	P_31 -> V_32
+	V_32 -> "Var c_33"
+	"Var c_33" [style=filled]
+	P_31 -> "P'_34"
+	"P'_34" -> not_35
+	not_35 [style=filled]
+	"P'_34" -> in_36
+	in_36 [style=filled]
+	"P'_34" -> V_37
+	V_37 -> "Var b_38"
+	"Var b_38" [style=filled]
+	T_30 -> "T'_39"
+	E_29 -> "E'_40"
+	B_28 -> "B'_41"
+	V_26 -> ")_42"
+	")_42" [style=filled]
+	P_25 -> "P'_43"
+	T_24 -> "T'_44"
+	"E'_22" -> "E'_45"
+	B_0 -> "B'_46"
+}

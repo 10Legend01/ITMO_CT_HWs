@@ -1,0 +1,122 @@
+digraph {
+	Expr_0 [label="Expr
+{'val': -1.252605419272086e-08}"]
+	Expr_0 -> AddSub_1
+	AddSub_1 [label="AddSub
+{'val': -1.252605419272086e-08}"]
+	AddSub_1 -> MulDiv_2
+	MulDiv_2 [label="MulDiv
+{'val': -1.252605419272086e-08}"]
+	MulDiv_2 -> Unary_3
+	Unary_3 [label="Unary
+{'val': -6}"]
+	Unary_3 -> Universal_4
+	Universal_4 [label="-" style=filled]
+	Unary_3 -> Unary_5
+	Unary_5 [label="Unary
+{'val': 6}"]
+	Unary_5 -> Universal_6
+	Universal_6 [label="(" style=filled]
+	Unary_5 -> AddSub_7
+	AddSub_7 [label="AddSub
+{'val': 3}"]
+	AddSub_7 -> MulDiv_8
+	MulDiv_8 [label="MulDiv
+{'val': 1}"]
+	MulDiv_8 -> Unary_9
+	Unary_9 [label="Unary
+{'val': 1}"]
+	Unary_9 -> Universal_10
+	Universal_10 [label=1 style=filled]
+	Unary_9 -> Factorial_11
+	Factorial_11 [label="Factorial
+{'val': 1}"]
+	MulDiv_8 -> MulDivP_12
+	MulDivP_12 [label="MulDivP
+{'val': 1}"]
+	AddSub_7 -> AddSubP_13
+	AddSubP_13 [label="AddSubP
+{'val': 3}"]
+	AddSubP_13 -> Universal_14
+	Universal_14 [label="+" style=filled]
+	AddSubP_13 -> MulDiv_15
+	MulDiv_15 [label="MulDiv
+{'val': 2}"]
+	MulDiv_15 -> Unary_16
+	Unary_16 [label="Unary
+{'val': 2}"]
+	Unary_16 -> Universal_17
+	Universal_17 [label=2 style=filled]
+	Unary_16 -> Factorial_18
+	Factorial_18 [label="Factorial
+{'val': 2}"]
+	MulDiv_15 -> MulDivP_19
+	MulDivP_19 [label="MulDivP
+{'val': 2}"]
+	AddSubP_13 -> AddSubP_20
+	AddSubP_20 [label="AddSubP
+{'val': 3}"]
+	Unary_5 -> Universal_21
+	Universal_21 [label=")" style=filled]
+	Unary_5 -> Factorial_22
+	Factorial_22 [label="Factorial
+{'val': 6}"]
+	Factorial_22 -> Universal_23
+	Universal_23 [label="!" style=filled]
+	MulDiv_2 -> MulDivP_24
+	MulDivP_24 [label="MulDivP
+{'val': -1.252605419272086e-08}"]
+	MulDivP_24 -> Universal_25
+	Universal_25 [label="/" style=filled]
+	MulDivP_24 -> Unary_26
+	Unary_26 [label="Unary
+{'val': 479001600}"]
+	Unary_26 -> Universal_27
+	Universal_27 [label="(" style=filled]
+	Unary_26 -> AddSub_28
+	AddSub_28 [label="AddSub
+{'val': 12}"]
+	AddSub_28 -> MulDiv_29
+	MulDiv_29 [label="MulDiv
+{'val': 12}"]
+	MulDiv_29 -> Unary_30
+	Unary_30 [label="Unary
+{'val': 3}"]
+	Unary_30 -> Universal_31
+	Universal_31 [label=3 style=filled]
+	Unary_30 -> Factorial_32
+	Factorial_32 [label="Factorial
+{'val': 3}"]
+	MulDiv_29 -> MulDivP_33
+	MulDivP_33 [label="MulDivP
+{'val': 12}"]
+	MulDivP_33 -> Universal_34
+	Universal_34 [label="*" style=filled]
+	MulDivP_33 -> Unary_35
+	Unary_35 [label="Unary
+{'val': 4}"]
+	Unary_35 -> Universal_36
+	Universal_36 [label=4 style=filled]
+	Unary_35 -> Factorial_37
+	Factorial_37 [label="Factorial
+{'val': 4}"]
+	MulDivP_33 -> MulDivP_38
+	MulDivP_38 [label="MulDivP
+{'val': 12}"]
+	AddSub_28 -> AddSubP_39
+	AddSubP_39 [label="AddSubP
+{'val': 12}"]
+	Unary_26 -> Universal_40
+	Universal_40 [label=")" style=filled]
+	Unary_26 -> Factorial_41
+	Factorial_41 [label="Factorial
+{'val': 479001600}"]
+	Factorial_41 -> Universal_42
+	Universal_42 [label="!" style=filled]
+	MulDivP_24 -> MulDivP_43
+	MulDivP_43 [label="MulDivP
+{'val': -1.252605419272086e-08}"]
+	AddSub_1 -> AddSubP_44
+	AddSubP_44 [label="AddSubP
+{'val': -1.252605419272086e-08}"]
+}

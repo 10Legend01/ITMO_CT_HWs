@@ -1,0 +1,50 @@
+_start_ b ;
+
+b   : e bP ;
+
+bP  :
+    | XOR e bP
+    ;
+
+e   : t eP ;
+
+eP  :
+    | OR t eP
+    ;
+
+t   : p tP ;
+
+tP  :
+    | AND p tP
+    ;
+
+p   : NOT pPP
+    | v pP
+    ;
+
+pP  : IN v
+    | NOT IN v
+    |
+    ;
+
+pPP : NOT pPP
+    | v pPPP
+    ;
+
+pPPP: IN v
+    |
+    ;
+
+v   : LPAR b RPAR
+    | VAR
+    ;
+
+XOR :   'xor' ;
+OR  :   'or' ;
+AND :   'and' ;
+NOT :   'not' ;
+IN  :   'in' ;
+VAR :   '[a-z]' ;
+LPAR:   '\(' ;
+RPAR:   '\)' ;
+SKIP:   '[\s]' -> skip ;

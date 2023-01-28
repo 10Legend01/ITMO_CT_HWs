@@ -1,0 +1,18 @@
+_start_ start ;
+
+start   : haveEPS haveEPSTwo TOKENthree
+        |
+        ;
+
+haveEPS : TOKEN
+        |
+        ;
+
+haveEPSTwo
+        : TOKENtwo
+        |
+        ;
+
+TOKEN : 'token' ;
+TOKENtwo : 'token' ;
+TOKENthree : 'token' ;

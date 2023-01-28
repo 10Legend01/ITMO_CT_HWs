@@ -1,0 +1,9 @@
+_start_ expr;
+
+ADD : '\+';
+ONE : 'aasd\\'\'\"""\'\'' ;
+
+expr returns [val]
+            : ADD {$val = addSub.val; \{ asd \} } {}
+            |
+            ;

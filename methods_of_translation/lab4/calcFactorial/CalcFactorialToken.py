@@ -1,0 +1,30 @@
+from enum import Enum
+
+
+class Token(Enum):
+    ADD = 0
+    SUB = 1
+    MUL = 2
+    DIV = 3
+    LPAREN = 4
+    RPAREN = 5
+    NUM = 6
+    FACTOR = 7
+    SKIP = 8
+    end = 9
+
+
+token_specification = [
+    ('ADD', '\+'),
+    ('SUB', '-'),
+    ('MUL', '\*'),
+    ('DIV', '/'),
+    ('LPAREN', '\('),
+    ('RPAREN', '\)'),
+    ('NUM', '[0-9]+'),
+    ('FACTOR', '!'),
+    ('SKIP', '[\s]'),
+    ('_MISMATCH_', '.'),
+]
+
+skip_tokens = {'SKIP'}

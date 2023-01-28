@@ -1,0 +1,40 @@
+_start_ expr;
+
+expr returns [val] : addSub {val = addSub.val} ;
+
+addSub returns [val] : mulDiv addSubP({mulDiv.val}) {val = addSubP.val} ;
+
+addSubP [left] returns [val]
+             : ADD mulDiv {next = left + mulDiv.val} addSubP({next}) {val = addSubP.val}
+             | SUB mulDiv {next = left - mulDiv.val} addSubP({next}) {val = addSubP.val}
+             | {val = left}
+             ;
+
+mulDiv returns [val] : unary mulDivP({unary.val}) {val = mulDivP.val} ;
+
+mulDivP [left] returns [val]
+             : MUL unary {next = left * unary.val} mulDivP({next}) {val = mulDivP.val}
+             | DIV unary {next = left / unary.val} mulDivP({next}) {val = mulDivP.val}
+             | {val = left}
+             ;
+
+unary returns [val]
+            : SUB unary {val = -unary.val}
+            | LPAREN addSub RPAREN factorial({addSub.val}) {val = factorial.val}
+            | NUM factorial({int(NUM.text)}) {val = factorial.val}
+            ;
+
+factorial [num] returns [val]
+            : FACTOR {from math import factorial as f} {val = f(num)}
+            | {val = num}
+            ;
+
+ADD : '\+' ;
+SUB : '-' ;
+MUL : '\*' ;
+DIV : '/' ;
+LPAREN : '\(' ;
+RPAREN : '\)' ;
+NUM : '[0-9]+' ;
+FACTOR : '!' ;
+SKIP : '[\s]' -> skip;
