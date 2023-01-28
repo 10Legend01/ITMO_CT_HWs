@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chat_navigation"
+    app:startDestination="@id/fragmentUser1">
+    <fragment
+        android:id="@+id/fragmentUser1"
+        android:name="com.legend.android_6dz.FragmentUser"
+        android:label="@string/chat"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/newFragmentUser"
+            app:destination="@+id/fragmentUser1" />
+
+        <argument
+            android:name="tic"
+            app:argType="integer"
+            android:defaultValue="1"/>
+
+        <argument
+            android:name="text"
+            app:argType="string"
+            android:defaultValue="0"/>
+    </fragment>
+
+</navigation>

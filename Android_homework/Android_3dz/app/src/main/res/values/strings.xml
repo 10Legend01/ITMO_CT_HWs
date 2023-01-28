@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name" translatable="false">Android_3dz</string>
+    <plurals name="numberOfContacts">
+        <item quantity="one">Найден %d контакт.</item>
+        <item quantity="few">Найдено %d контакта.</item>
+        <item quantity="other">Найдено %d контактов.</item>
+    </plurals>
+</resources>
