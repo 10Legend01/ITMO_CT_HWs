@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2020.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\monte_carlo_monty_hall.dir/objects.a
+C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\ar.exe cr CMakeFiles\monte_carlo_monty_hall.dir/objects.a @CMakeFiles\monte_carlo_monty_hall.dir\objects1.rsp
+C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\g++.exe -g -g   -Wl,--whole-archive CMakeFiles\monte_carlo_monty_hall.dir/objects.a -Wl,--no-whole-archive  -o monte_carlo_monty_hall.exe -Wl,--out-implib,libmonte_carlo_monty_hall.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\monte_carlo_monty_hall.dir\linklibs.rsp

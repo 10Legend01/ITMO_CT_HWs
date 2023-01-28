@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/monty_hall.h
+
+../include/random_gen.h
+
+D:/Users/Legend/monte-carlo-monty-hall-10Legend01/src/monty_hall.cpp
+monty_hall.h
+D:/Users/Legend/monte-carlo-monty-hall-10Legend01/src/monty_hall.h
+random_gen.h
+D:/Users/Legend/monte-carlo-monty-hall-10Legend01/src/random_gen.h
+

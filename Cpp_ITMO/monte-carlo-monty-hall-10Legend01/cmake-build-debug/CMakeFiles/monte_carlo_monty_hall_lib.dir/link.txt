@@ -1,0 +1,2 @@
+C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\ar.exe qc libmonte_carlo_monty_hall_lib.a  CMakeFiles/monte_carlo_monty_hall_lib.dir/src/monty_hall.cpp.obj CMakeFiles/monte_carlo_monty_hall_lib.dir/src/random_gen.cpp.obj
+C:\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin\ranlib.exe libmonte_carlo_monty_hall_lib.a
