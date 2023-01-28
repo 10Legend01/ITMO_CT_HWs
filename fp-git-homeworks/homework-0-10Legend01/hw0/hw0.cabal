@@ -1,0 +1,16 @@
+name:                hw0
+version:             0.1.0.0
+
+author:              Nazarov Mikhail
+
+category:            Web
+build-type:          Simple
+cabal-version:       >=1.10
+tested-with:         GHC == 8.0.1
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     HW0.T1, HW0.T2, HW0.T3, HW0.T4, HW0.T5, HW0.T6
+  ghc-options:         -Wall
+  build-depends:       base >= 4.9 && < 5
+  default-language:    Haskell2010
